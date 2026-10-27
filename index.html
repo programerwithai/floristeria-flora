@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0d14" />
+  <meta name="description" content="JR Cerrajeros en Arrecife. Servicio urgente 24 horas. Llegada en menos de 30 min. Apertura de puertas, cambio de cerraduras, apertura de vehículos." />
+  <title>Cerrajeros en Arrecife - JR Cerrajeros | Urgencias 24h</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&family=Onest:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0d14;
+      --surface: #131824;
+      --ink: #e9edf3;
+      --muted: #8891a1;
+      --accent: #5a9bfc;
+      --accent-ink: #0a0d14;
+      --green: #22c55e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      font-family: 'Onest', system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    body {
+      padding-bottom: 92px;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    
+    .wrap {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    
+    header {
+      padding: 24px 0 32px;
+      border-bottom: 1px solid rgba(233, 237, 243, 0.08);
+    }
+    
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(34, 197, 94, 0.12);
+      color: #86efac;
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.3px;
+    }
+    .badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse 1.6s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.3); }
+    }
+    
+    h1 {
+      font-family: 'Unbounded', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 1.3rem + 3.2vw, 4rem);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      margin: 16px 0 12px;
+    }
+    
+    .sub {
+      color: var(--muted);
+      font-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+      line-height: 1.5;
+      max-width: 38ch;
+    }
+    
+    .eta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      background: var(--surface);
+      border: 1px solid rgba(233, 237, 243, 0.08);
+      color: var(--ink);
+      padding: 10px 14px;
+      border-radius: 0;
+      font-size: 14px;
+    }
+    .eta svg {
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+    
+    .cta-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 16px;
+      border-radius: 0;
+      font-family: 'Onest', sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      flex: 1;
+      transition: opacity 0.2s ease;
+    }
+    .btn:active {
+      opacity: 0.8;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-ink);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid rgba(233, 237, 243, 0.2);
+    }
+    
+    section {
+      padding: 32px 0;
+    }
+    section + section {
+      border-top: 1px solid rgba(233, 237, 243, 0.08);
+    }
+    
+    .section-title {
+      font-family: 'Unbounded', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.5rem);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    
+    .services {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--surface);
+      border: 1px solid rgba(233, 237, 243, 0.08);
+      padding: 16px;
+    }
+    .icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      background: rgba(90, 155, 252, 0.12);
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .card-content h3 {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .card-content p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    
+    .loc {
+      background: var(--surface);
+      border: 1px solid rgba(233, 237, 243, 0.08);
+      padding: 18px;
+    }
+    .loc p {
+      font-size: 15px;
+      color: var(--ink);
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .loc strong {
+      font-weight: 500;
+    }
+    
+    .trust {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .trust-item {
+      text-align: center;
+      background: var(--surface);
+      border: 1px solid rgba(233, 237, 243, 0.08);
+      padding: 14px 8px;
+    }
+    .trust-item span {
+      display: block;
+      font-family: 'Unbounded', system-ui, sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+    }
+    .trust-item small {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    footer {
+      padding: 32px 16px 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      border-top: 1px solid rgba(233, 237, 243, 0.08);
+    }
+    
+    .sticky {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 50;
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(10, 13, 20, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(233, 237, 243, 0.08);
+    }
+    .sticky a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px;
+      background: var(--accent);
+      color: var(--accent-ink);
+      font-family: 'Onest', sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+    }
+    .sticky a:active {
+      opacity: 0.9;
+    }
+    .sticky small {
+      display: block;
+      text-align: center;
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 6px;
+    }
+    
+    @media (min-width: 600px) {
+      .wrap {
+        max-width: 520px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <span class="badge">Servicio 24 Horas</span>
+      <h1>Cerrajeros en Arrecife - Llegada en menos de 30 min</h1>
+      <p class="sub">JR Cerrajeros. Apertura de puertas, cambio de cerraduras y apertura de vehículos. Atención urgente en Arrecife y alrededores.</p>
+      <div class="eta">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Llegada garantizada en menos de 30 minutos
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="tel:+34686948433">Llamar ahora</a>
+        <a class="btn btn-secondary" href="#servicios">Servicios</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="servicios">
+      <div class="wrap">
+        <h2 class="section-title">Servicios urgentes</h2>
+        <div class="services">
+          <div class="card">
+            <div class="icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>
+            </div>
+            <div class="card-content">
+              <h3>Apertura de puertas</h3>
+              <p>Sin daños, puertas blindadas y acorazadas.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            </div>
+            <div class="card-content">
+              <h3>Cambio de cerraduras</h3>
+              <p>Instalación y sustitución de cilindros y cerraduras.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17h14M7 17V9a5 5 0 0110 0v8M3 21h18"/></svg>
+            </div>
+            <div class="card-content">
+              <h3>Apertura de vehículos</h3>
+              <p>Recuperación de llaves sin dañar el coche.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2 class="section-title">Ubicación</h2>
+        <div class="loc">
+          <p><strong>JR Cerrajeros</strong><br/>C. Tarragona, 2, Arrecife</p>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=C.+Tarragona+2+Arrecife">Cómo llegar</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="trust">
+          <div class="trust-item">
+            <span>24h</span>
+            <small>Servicio</small>
+          </div>
+          <div class="trust-item">
+            <span>&lt;30'</span>
+            <small>Llegada</small>
+          </div>
+          <div class="trust-item">
+            <span>100%</span>
+            <small>Urgencias</small>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    JR Cerrajeros · Arrecife · Tel. 686 94 84 33
+  </footer>
+
+  <div class="sticky">
+    <a href="tel:+34686948433">Llamar Urgencias (686 94 84 33)</a>
+    <small>Toque para llamar en un solo paso</small>
+  </div>
+</body>
+</html>
